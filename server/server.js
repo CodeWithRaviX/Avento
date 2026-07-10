@@ -11,9 +11,6 @@ const bookingRoutes = require('./routes/bookings');
 
 const app = express();
 
-// Middleware
-const cors = require("cors");
-
 app.use(cors({
     origin: [
         "http://localhost:5173",
