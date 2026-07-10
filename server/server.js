@@ -12,7 +12,10 @@ const bookingRoutes = require('./routes/bookings');
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.CLIENT_URL,
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
@@ -24,8 +27,6 @@ app.use('/api/bookings', bookingRoutes);
 mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/eventora')
   .then(() => {
     console.log("MongoDB Connected");
-    console.log("Database:", mongoose.connection.name);
-    console.log("Host:", mongoose.connection.host);
   })
   .catch(err => console.error('MongoDB Connection Error:', err));
 
