@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://avento-b4dk.onrender.com',
+    baseURL: 'https://avento-b4dk.onrender.com/api',
 });
 
 api.interceptors.request.use((config) => {
