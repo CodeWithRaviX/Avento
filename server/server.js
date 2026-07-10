@@ -12,9 +12,14 @@ const bookingRoutes = require('./routes/bookings');
 const app = express();
 
 // Middleware
+const cors = require("cors");
+
 app.use(cors({
-  origin: process.env.CLIENT_URL,
-  credentials: true
+    origin: [
+        "http://localhost:5173",
+        "https://avento.vercel.app"
+    ],
+    credentials: true
 }));
 app.use(express.json());
 
